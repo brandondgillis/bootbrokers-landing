@@ -1,7 +1,48 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import { supabase } from '../lib/supabase';
 import styles from '../styles/ComingSoon.module.css';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+  const [message, setMessage] = useState('');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      setStatus('error');
+      setMessage('Please enter a valid email address.');
+      return;
+    }
+
+    setStatus('submitting');
+    
+    try {
+      const { error } = await supabase
+        .from('waitlist')
+        .insert({ email: email.toLowerCase().trim() });
+      
+      if (error) {
+        if (error.code === '23505') {
+          setStatus('success');
+          setMessage("You're already on the list! We'll notify you when we launch.");
+        } else {
+          throw error;
+        }
+      } else {
+        setStatus('success');
+        setMessage("Thanks! We'll notify you when Boot Brokers launches.");
+        setEmail('');
+      }
+    } catch (err) {
+      console.error('Waitlist error:', err);
+      setStatus('error');
+      setMessage('Something went wrong. Please try again.');
+    }
+  }
+
   return (
     <>
       <Head>
@@ -35,18 +76,30 @@ export default function Home() {
               Be the first to know when we launch. Get exclusive early access.
             </p>
             
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className={styles.waitlistForm}>
+            <form onSubmit={handleSubmit} className={styles.waitlistForm}>
               <input
                 type="email"
-                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className={styles.emailInput}
+                disabled={status === 'submitting' || status === 'success'}
                 required
               />
-              <button type="submit" className={styles.submitBtn}>
-                Notify Me
+              <button 
+                type="submit" 
+                className={styles.submitBtn}
+                disabled={status === 'submitting' || status === 'success'}
+              >
+                {status === 'submitting' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Notify Me'}
               </button>
             </form>
+            
+            {message && (
+              <div className={`${styles.message} ${styles[status]}`}>
+                {message}
+              </div>
+            )}
           </div>
           
           {/* Social proof */}
