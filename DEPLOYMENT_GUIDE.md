@@ -90,17 +90,34 @@ Then:
 
 ## ?? Email Signup
 
-Currently using Formspree (free). Update the form action in `pages/index.js`:
+**Now using your Supabase database!** ?
 
-```javascript
-// Line 30
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
+Your landing page is connected to the **same Supabase database** as your main marketplace. All waitlist signups go directly to your `waitlist` table.
 
-**Or** set up with:
-- **Formspree:** https://formspree.io (easiest, 50 submissions/month free)
-- **EmailOctopus:** https://emailoctopus.com (2,500 subscribers free)
-- **Mailchimp:** https://mailchimp.com
+### How it Works:
+1. User enters email on landing page
+2. Email is saved to your Supabase `waitlist` table
+3. Duplicate emails are handled gracefully
+4. Same database as your main app!
+
+### View Waitlist Signups:
+1. Go to https://supabase.com/dashboard
+2. Select your project
+3. Go to **Table Editor** ? `waitlist`
+4. See all email signups!
+
+### Export Waitlist:
+In Supabase dashboard:
+1. Go to `waitlist` table
+2. Click **Export** ? Download CSV
+3. Import to your email platform when ready to launch!
+
+**Benefits:**
+- ? No third-party services needed
+- ? Unlimited signups (Supabase free tier: 500MB)
+- ? Same database as main app
+- ? Easy to export
+- ? Duplicate email protection built-in
 
 ## ?? Customization
 
