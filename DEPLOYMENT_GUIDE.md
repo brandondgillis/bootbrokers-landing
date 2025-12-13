@@ -31,12 +31,21 @@ Your landing site is now ready and pushed to GitHub!
    - Click "Add New..." ? "Project"
    - Select your GitHub repo: `bootbrokers-landing`
    - Framework Preset: **Next.js** (should auto-detect)
+   - **Important:** No build settings needed - Vercel auto-configures Next.js!
    - Click "Deploy"
 
 3. **Wait for Build** (takes ~2 minutes)
 
 4. **Done!** Your site will be live at:
    - `bootbrokers-landing.vercel.app`
+
+### ? Build Settings (Auto-configured by Vercel):
+- **Framework:** Next.js
+- **Build Command:** `npm run build`
+- **Output Directory:** `.next` (automatic)
+- **Install Command:** `npm install`
+
+**No manual configuration needed!** Vercel detects Next.js automatically.
 
 ## ?? Point Your Domain
 
