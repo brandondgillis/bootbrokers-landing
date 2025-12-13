@@ -7,7 +7,11 @@ create table if not exists blog_posts (
   title text not null,
   excerpt text not null,
   content text not null,
+  featured_image text, -- Hero image URL
   author_id uuid references auth.users(id),
+  author_name text default 'Boot Brokers Team', -- Display author name
+  read_time integer, -- Estimated read time in minutes
+  tags text[], -- Array of tags
   status text default 'draft' check (status in ('draft', 'published', 'scheduled')),
   publish_date timestamptz,
   created_at timestamptz default now(),
@@ -51,6 +55,21 @@ create trigger update_blog_posts_updated_at
 create index if not exists blog_posts_slug_idx on blog_posts(slug);
 create index if not exists blog_posts_status_idx on blog_posts(status);
 create index if not exists blog_posts_publish_date_idx on blog_posts(publish_date);
+create index if not exists blog_posts_tags_idx on blog_posts using gin(tags);
+
+-- Migrate existing data if blog_posts table already exists
+-- Add new columns if they don't exist
+alter table blog_posts add column if not exists featured_image text;
+alter table blog_posts add column if not exists author_name text default 'Boot Brokers Team';
+alter table blog_posts add column if not exists read_time integer;
+alter table blog_posts add column if not exists tags text[];
+
+-- Update existing posts with default values
+update blog_posts set 
+  author_name = 'Boot Brokers Team',
+  read_time = 5,
+  tags = ARRAY['General']
+where author_name is null or read_time is null or tags is null;
 
 -- Insert your existing blog posts
 insert into blog_posts (slug, title, excerpt, content, status, publish_date) values
