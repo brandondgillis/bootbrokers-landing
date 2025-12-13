@@ -1,0 +1,126 @@
+.blogContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  margin: 0 0 8px;
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 32px;
+}
+
+.backLink {
+  margin-top: 24px;
+}
+
+.backLink a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #B08968;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.backLink a:hover {
+  background: #9a7456;
+  transform: translateY(-2px);
+}
+
+.postsGrid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 60px;
+  flex: 1;
+}
+
+.postCard {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.postCard:hover {
+  border-color: #B08968;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.postLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.postCard h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 12px;
+}
+
+.excerpt {
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: #555;
+}
+
+.readMore {
+  color: #B08968;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.postCard:hover .readMore {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #eee;
+  color: #999;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .postCard {
+    padding: 20px;
+  }
+
+  .postCard h2 {
+    font-size: 1.25rem;
+  }
+}
