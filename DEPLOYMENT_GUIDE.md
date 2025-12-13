@@ -62,33 +62,59 @@ Your landing site is now ready and pushed to GitHub!
 
 ## ?? How to Add Blog Posts
 
-Edit: `lib/posts.js`
+### **Option 1: Admin Portal** ? (Recommended)
 
-```javascript
-export const posts = [
-  {
-    slug: 'your-post-url',
-    title: 'Your Post Title',
-    date: 'January 1, 2025',
-    excerpt: 'Short description for the blog home page',
-    content: `
-Your full blog post content here.
+Access your admin portal at: `/blog/admin`
 
-## You can use headings
+**First Time Setup:**
+1. Go to your Supabase dashboard
+2. Run the SQL in `supabase-blog-schema.sql`
+3. Create an admin user:
+   - Go to Authentication ? Users
+   - Click "Add User"
+   - Email: `admin@bootbrokers.co`
+   - Password: (choose a strong password)
+   - Click "Create User"
 
-Regular paragraphs work too.
+**Using the Admin Portal:**
+1. Visit: `https://bootbrokers.co/blog/admin`
+2. Login with your admin password
+3. Click **"+ New Post"**
+4. Fill in:
+   - **Title** - Post headline
+   - **Slug** - URL path (auto-generated from title)
+   - **Excerpt** - Short description for blog home
+   - **Content** - Your post content
+   - **Status** - Draft, Published, or Scheduled
+   - **Publish Date** - (if scheduling)
+5. Click **Preview** to see how it looks
+6. Click **Publish** or **Save Draft**
 
-### Bullet lists:
+**Features:**
+- ? Rich text editor with markdown support
+- ? Live preview
+- ? Schedule posts for future publishing
+- ? Edit existing posts
+- ? Delete posts
+- ? Draft mode
+
+### **Option 2: Direct Database** (Advanced)
+
+Alternatively, insert directly into Supabase `blog_posts` table.
+
+### **Formatting Guide:**
+```
+## Heading 2
+### Heading 3
+
+Regular paragraphs work great.
+
+### Lists:
 - Item one
 - Item two
+- Item three
 
-[Links work](/) like this.
-
-*Italic text* with asterisks.
-    `.trim()
-  },
-  // ... add more posts here
-];
+*Italic text* with asterisks
 ```
 
 Then:

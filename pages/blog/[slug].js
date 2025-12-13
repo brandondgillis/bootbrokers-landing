@@ -1,11 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { getAllPosts, getPostBySlug } from '../../lib/posts';
+import { supabase } from '../../lib/supabase';
 import styles from '../../styles/BlogPost.module.css';
 
 export default function BlogPost({ post }) {
   if (!post) {
-    return <div>Post not found</div>;
+    return (
+      <div style={{ padding: '40px', textAlign: 'center' }}>
+        <h1>Post not found</h1>
+        <Link href="/blog">? Back to Blog</Link>
+      </div>
+    );
   }
 
   const renderContent = (content) => {
@@ -48,19 +53,29 @@ export default function BlogPost({ post }) {
         <meta name="description" content={post.excerpt} />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
       </Head>
+
       <div className={styles.postContainer}>
         <Link href="/blog" className={styles.backLink}>
           Back to Blog
         </Link>
+
         <article className={styles.post}>
           <header>
             <h1 className={styles.title}>{post.title}</h1>
-            <p className={styles.date}>{post.date}</p>
+            <p className={styles.date}>
+              {new Date(post.publish_date || post.created_at).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </p>
           </header>
+
           <div className={styles.content}>
             {renderContent(post.content)}
           </div>
         </article>
+
         <footer className={styles.footer}>
           <Link href="/" className={styles.cta}>
             Visit Boot Brokers
@@ -73,14 +88,39 @@ export default function BlogPost({ post }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts();
-  const paths = posts.map((post) => ({
+  const { data: posts } = await supabase
+    .from('blog_posts')
+    .select('slug')
+    .eq('status', 'published');
+
+  const paths = (posts || []).map((post) => ({
     params: { slug: post.slug },
   }));
-  return { paths, fallback: false };
+
+  return {
+    paths,
+    fallback: 'blocking', // Allow new posts to be generated on-demand
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug);
-  return { props: { post } };
+  const { data: post } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('slug', params.slug)
+    .eq('status', 'published')
+    .single();
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      post,
+    },
+    revalidate: 60, // Revalidate every minute
+  };
 }
