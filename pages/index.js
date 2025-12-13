@@ -105,15 +105,15 @@ export default function Home() {
           {/* Social proof */}
           <div className={styles.socialProof}>
             <div className={styles.proofItem}>
-              <div className={styles.proofNumber}>7.75%</div>
-              <div className={styles.proofLabel}>Lowest Commissions</div>
+              <div className={styles.proofNumber}>Lowest</div>
+              <div className={styles.proofLabel}>Commissions</div>
             </div>
             <div className={styles.proofItem}>
-              <div className={styles.proofNumber}>100%</div>
-              <div className={styles.proofLabel}>Boot Enthusiast Made</div>
+              <div className={styles.proofNumber}>Made in</div>
+              <div className={styles.proofLabel}>USA</div>
             </div>
             <div className={styles.proofItem}>
-              <div className={styles.proofNumber}>24/7</div>
+              <div className={styles.proofNumber}>Real Human</div>
               <div className={styles.proofLabel}>Support</div>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
         
         {/* Footer */}
         <footer className={styles.comingSoonFooter}>
-          <p>&copy; {new Date().getFullYear()} Boot Brokers &middot; Built with craftsmanship</p>
+          <p>&copy; {new Date().getFullYear()} Boot Brokers &middot; Built for craftsmanship</p>
         </footer>
       </div>
     </>
