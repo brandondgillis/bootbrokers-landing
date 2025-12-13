@@ -157,7 +157,7 @@
 }
 
 .readMore::after {
-  content: "?";
+  content: "\2192";
   transition: transform 0.2s;
 }
 

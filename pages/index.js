@@ -120,7 +120,7 @@ export default function Home() {
 
           {/* Blog Link */}
           <div className={styles.blogLink}>
-            <a href="/blog">Read our blog ?</a>
+            <a href="/blog">Read our blog &rarr;</a>
           </div>
         </div>
         

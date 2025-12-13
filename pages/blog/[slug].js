@@ -8,7 +8,7 @@ export default function BlogPost({ post }) {
     return (
       <div style={{ padding: '40px', textAlign: 'center' }}>
         <h1>Post not found</h1>
-        <Link href="/blog">? Back to Blog</Link>
+        <Link href="/blog">&larr; Back to Blog</Link>
       </div>
     );
   }
@@ -56,7 +56,7 @@ export default function BlogPost({ post }) {
 
       <div className={styles.postContainer}>
         <Link href="/blog" className={styles.backLink}>
-          Back to Blog
+          &larr; Back to Blog
         </Link>
 
         <article className={styles.post}>
