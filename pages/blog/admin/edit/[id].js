@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AdminAuth from '../../../../components/AdminAuth';
+import RichTextEditor from '../../../../components/RichTextEditor';
 import { supabase } from '../../../../lib/supabase';
 import styles from '../../../../styles/BlogEditor.module.css';
 
@@ -18,7 +19,6 @@ export default function EditPost() {
     status: 'draft',
     publish_date: '',
   });
-  const [preview, setPreview] = useState(false);
 
   useEffect(() => {
     if (id) loadPost();
@@ -73,28 +73,6 @@ export default function EditPost() {
     } finally {
       setSaving(false);
     }
-  }
-
-  function renderPreview(content) {
-    return content.split('\n\n').map((paragraph, idx) => {
-      if (paragraph.startsWith('## ')) {
-        return <h2 key={idx}>{paragraph.replace('## ', '')}</h2>;
-      }
-      if (paragraph.startsWith('### ')) {
-        return <h3 key={idx}>{paragraph.replace('### ', '')}</h3>;
-      }
-      if (paragraph.includes('\n- ')) {
-        const items = paragraph.split('\n').filter(line => line.startsWith('- '));
-        return (
-          <ul key={idx}>
-            {items.map((item, i) => (
-              <li key={i}>{item.replace('- ', '')}</li>
-            ))}
-          </ul>
-        );
-      }
-      return <p key={idx}>{paragraph}</p>;
-    });
   }
 
   if (loading) {
@@ -165,32 +143,12 @@ export default function EditPost() {
             </div>
 
             <div className={styles.field}>
-              <label>
-                Content * 
-                <button
-                  type="button"
-                  onClick={() => setPreview(!preview)}
-                  className={styles.previewToggle}
-                >
-                  {preview ? 'Edit' : 'Preview'}
-                </button>
-              </label>
-              {!preview ? (
-                <textarea
-                  value={form.content}
-                  onChange={(e) => setForm({ ...form, content: e.target.value })}
-                  placeholder="Write your post content here..."
-                  rows="20"
-                  required
-                />
-              ) : (
-                <div className={styles.preview}>
-                  {renderPreview(form.content)}
-                </div>
-              )}
-              <small>
-                Formatting: ## Heading, ### Subheading, - List item
-              </small>
+              <label>Content *</label>
+              <RichTextEditor
+                value={form.content}
+                onChange={(value) => setForm({ ...form, content: value })}
+                placeholder="Write your post content here..."
+              />
             </div>
 
             <div className={styles.row}>
