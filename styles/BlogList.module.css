@@ -1,0 +1,211 @@
+.nav {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: #2d2a26;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: #B08968;
+}
+
+.homeLink {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #2d2a26;
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 2px solid #B08968;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.homeLink:hover {
+  background: #B08968;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px 80px;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 3px solid #B08968;
+}
+
+.header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #2d2a26;
+  margin: 0 0 16px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.guidesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.guideCard {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.guideCard:hover {
+  border-color: #B08968;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(176, 137, 104, 0.2);
+}
+
+.guideLink {
+  display: block;
+  padding: 32px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.guideCard h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  margin: 0 0 16px;
+  color: #2d2a26;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 24px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.readTime {
+  font-size: 0.9rem;
+  color: #B08968;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: #B08968;
+  transition: transform 0.2s;
+}
+
+.guideCard:hover .arrow {
+  transform: translateX(4px);
+}
+
+.footer {
+  text-align: center;
+  padding: 60px 20px 40px;
+  margin-top: 80px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #B08968;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.cta:hover {
+  background: #9a7456;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(176, 137, 104, 0.3);
+}
+
+.footer p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 20px;
+  }
+
+  .container {
+    padding: 40px 20px 60px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .guidesGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .guideLink {
+    padding: 24px;
+  }
+
+  .guideCard h2 {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
