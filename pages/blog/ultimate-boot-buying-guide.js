@@ -16,6 +16,9 @@ export default function UltimateBootBuyingGuide() {
           <Link href="/" className={styles.logo}>
             BOOT BROKERS
           </Link>
+          <Link href="https://www.bootbrokers.co" className={styles.homeLink}>
+            Home
+          </Link>
         </div>
       </nav>
 

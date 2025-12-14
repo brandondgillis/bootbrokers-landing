@@ -13,6 +13,7 @@
   height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -26,6 +27,23 @@
 
 .logo:hover {
   color: #B08968;
+}
+
+.homeLink {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #2d2a26;
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 2px solid #B08968;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.homeLink:hover {
+  background: #B08968;
+  color: #fff;
 }
 
 .guide {
