@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { supabase } from '../../lib/supabase';
 import styles from '../../styles/BlogPost.module.css';
 
@@ -28,67 +30,6 @@ export default function BlogPost({ post }) {
       </div>
     );
   }
-
-  const renderContent = (content) => {
-    const lines = content.split('\n\n');
-    return lines.map((paragraph, idx) => {
-      if (paragraph.startsWith('### ')) {
-        return <h3 key={idx}>{paragraph.replace('### ', '')}</h3>;
-      }
-      if (paragraph.startsWith('## ')) {
-        return <h2 key={idx}>{paragraph.replace('## ', '')}</h2>;
-      }
-      if (paragraph.startsWith('- ') || paragraph.includes('\n- ')) {
-        const allLines = paragraph.split('\n');
-        const introText = [];
-        const bulletItems = [];
-        
-        allLines.forEach(line => {
-          if (line.trim().startsWith('- ')) {
-            bulletItems.push(line.replace(/^- /, '').trim());
-          } else if (line.trim() && bulletItems.length === 0) {
-            introText.push(line);
-          }
-        });
-        
-        return (
-          <div key={idx}>
-            {introText.length > 0 && <p>{introText.join(' ')}</p>}
-            <ul>
-              {bulletItems.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        );
-      }
-      if (paragraph.includes('*') && paragraph.match(/\*([^*]+)\*/)) {
-        const parts = paragraph.split(/\*([^*]+)\*/);
-        return (
-          <p key={idx}>
-            {parts.map((part, i) => 
-              i % 2 === 1 ? <em key={i}>{part}</em> : part
-            )}
-          </p>
-        );
-      }
-      // Handle regular paragraphs with line breaks
-      const textLines = paragraph.split('\n').filter(line => line.trim());
-      if (textLines.length > 1) {
-        return (
-          <p key={idx}>
-            {textLines.map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < textLines.length - 1 && <br />}
-              </span>
-            ))}
-          </p>
-        );
-      }
-      return <p key={idx}>{paragraph}</p>;
-    });
-  };
 
   const formattedDate = new Date(post.publish_date || post.created_at).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -147,7 +88,9 @@ export default function BlogPost({ post }) {
           </header>
 
           <div className={styles.content}>
-            {renderContent(post.content)}
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post.content}
+            </ReactMarkdown>
           </div>
         </article>
 
