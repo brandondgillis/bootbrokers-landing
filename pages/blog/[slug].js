@@ -72,6 +72,20 @@ export default function BlogPost({ post }) {
           </p>
         );
       }
+      // Handle regular paragraphs with line breaks
+      const textLines = paragraph.split('\n').filter(line => line.trim());
+      if (textLines.length > 1) {
+        return (
+          <p key={idx}>
+            {textLines.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < textLines.length - 1 && <br />}
+              </span>
+            ))}
+          </p>
+        );
+      }
       return <p key={idx}>{paragraph}</p>;
     });
   };
