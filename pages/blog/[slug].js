@@ -22,12 +22,13 @@ export default function BlogPost({ post }) {
       if (paragraph.startsWith('## ')) {
         return <h2 key={idx}>{paragraph.replace('## ', '')}</h2>;
       }
-      if (paragraph.includes('\n- ')) {
-        const items = paragraph.split('\n').filter(line => line.startsWith('- '));
+      // Check if paragraph contains bullet points (starts with - or has \n-)
+      if (paragraph.startsWith('- ') || paragraph.includes('\n- ')) {
+        const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '));
         return (
           <ul key={idx}>
             {items.map((item, i) => (
-              <li key={i}>{item.replace('- ', '')}</li>
+              <li key={i}>{item.replace(/^- /, '').trim()}</li>
             ))}
           </ul>
         );
