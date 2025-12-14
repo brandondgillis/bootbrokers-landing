@@ -109,12 +109,24 @@ export default function Home() {
               <div className={styles.proofLabel}>Commissions</div>
             </div>
             <div className={styles.proofItem}>
-              <div className={styles.proofNumber}>Made in</div>
-              <div className={styles.proofLabel}>USA</div>
+              <div className={styles.proofLabel}>Made in</div>
+              <div className={styles.proofNumber}>USA</div>
             </div>
             <div className={styles.proofItem}>
-              <div className={styles.proofNumber}>Real Human</div>
-              <div className={styles.proofLabel}>Support</div>
+              <div className={styles.proofLabel}>Expert</div>
+              <div className={styles.proofNumber}>Support</div>
+            </div>
+            <div className={styles.proofItem}>
+              <div className={styles.proofNumber}>Seller</div>
+              <div className={styles.proofLabel}>Protections</div>
+            </div>
+            <div className={styles.proofItem}>
+              <div className={styles.proofNumber}>Verified</div>
+              <div className={styles.proofLabel}>Listings</div>
+            </div>
+            <div className={styles.proofItem}>
+              <div className={styles.proofNumber}>Fair</div>
+              <div className={styles.proofLabel}>Pricing</div>
             </div>
           </div>
 
