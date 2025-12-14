@@ -15,6 +15,12 @@ export default function BlogList() {
       description: 'An honest comparison of eBay, Poshmark, Mercari, Depop, and more. Learn the fees, protection policies, and frustrations each platform creates for boot sellers.',
       href: '/blog/best-online-marketplaces',
       readTime: '10 min read'
+    },
+    {
+      title: 'Boot Brokers Standards',
+      description: 'The listing requirements, condition standards, and buyer protections that make Boot Brokers different. Learn our photo requirements, measurements, and transparency standards.',
+      href: '/blog/boot-brokers-standards',
+      readTime: '8 min read'
     }
   ];
 
