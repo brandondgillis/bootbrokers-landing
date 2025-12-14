@@ -22,15 +22,31 @@ export default function BlogPost({ post }) {
       if (paragraph.startsWith('## ')) {
         return <h2 key={idx}>{paragraph.replace('## ', '')}</h2>;
       }
-      // Check if paragraph contains bullet points (starts with - or has \n-)
+      // Check if paragraph contains bullet points
       if (paragraph.startsWith('- ') || paragraph.includes('\n- ')) {
-        const items = paragraph.split('\n').filter(line => line.trim().startsWith('- '));
+        const allLines = paragraph.split('\n');
+        const introText = [];
+        const bulletItems = [];
+        
+        // Separate intro text from bullets
+        allLines.forEach(line => {
+          if (line.trim().startsWith('- ')) {
+            bulletItems.push(line.replace(/^- /, '').trim());
+          } else if (line.trim() && bulletItems.length === 0) {
+            // Text before bullets
+            introText.push(line);
+          }
+        });
+        
         return (
-          <ul key={idx}>
-            {items.map((item, i) => (
-              <li key={i}>{item.replace(/^- /, '').trim()}</li>
-            ))}
-          </ul>
+          <div key={idx}>
+            {introText.length > 0 && <p>{introText.join(' ')}</p>}
+            <ul>
+              {bulletItems.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
         );
       }
       if (paragraph.includes('*') && paragraph.match(/\*([^*]+)\*/)) {
