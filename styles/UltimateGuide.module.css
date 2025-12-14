@@ -1,0 +1,231 @@
+.nav {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: #2d2a26;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: #B08968;
+}
+
+.guide {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px 80px;
+}
+
+.header {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 3px solid #B08968;
+}
+
+.header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #2d2a26;
+  margin: 0 0 30px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #3d3832;
+  margin: 0 0 20px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.section h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.2rem;
+  margin: 0 0 24px;
+  letter-spacing: 0.02em;
+  color: #2d2a26;
+  border-bottom: 3px solid #B08968;
+  padding-bottom: 12px;
+}
+
+.section h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.7rem;
+  margin: 32px 0 16px;
+  color: #3d3832;
+}
+
+.section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 0 20px;
+}
+
+.section ul,
+.section ol {
+  margin: 0 0 24px;
+  padding-left: 32px;
+}
+
+.section li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 12px 0;
+  color: #333;
+}
+
+.section li::marker {
+  color: #B08968;
+  font-weight: 600;
+}
+
+.section strong {
+  font-weight: 700;
+  color: #2d2a26;
+}
+
+.callout {
+  background: #f9f8f6;
+  border-left: 4px solid #B08968;
+  padding: 24px 28px;
+  margin: 28px 0;
+  border-radius: 4px;
+}
+
+.callout p {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: #2d2a26;
+}
+
+.callout blockquote {
+  margin: 12px 0 0;
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 4px;
+  font-style: italic;
+  color: #555;
+  border: 1px solid #e0e0e0;
+}
+
+.proTip {
+  background: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.redFlag {
+  background: #fff5f5;
+  border-left: 4px solid #ef4444;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.faq {
+  margin-top: 32px;
+}
+
+.faq h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  margin: 32px 0 12px;
+  color: #2d2a26;
+}
+
+.faq p {
+  margin: 0 0 24px;
+  padding-left: 20px;
+}
+
+.guideFooter {
+  text-align: center;
+  padding: 60px 20px 40px;
+  margin-top: 80px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #B08968;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  transition: all 0.2s;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.cta:hover {
+  background: #9a7456;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(176, 137, 104, 0.3);
+}
+
+.guideFooter p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 20px;
+  }
+
+  .guide {
+    padding: 40px 20px 60px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .intro {
+    font-size: 1.05rem;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .section h3 {
+    font-size: 1.4rem;
+  }
+
+  .section p,
+  .section li {
+    font-size: 1rem;
+  }
+}
