@@ -15,7 +15,7 @@ export default function BlogList() {
   return (
     <>
       <Head>
-        <title>Boot Buying Guides - Boot Brokers</title>
+        <title>Boot Brokers Blog - Boot Brokers</title>
         <meta name="description" content="Expert guides on buying quality boots online. Learn everything you need to know about fit, condition, authenticity, and pricing." />
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
       </Head>
@@ -33,7 +33,7 @@ export default function BlogList() {
 
       <div className={styles.container}>
         <header className={styles.header}>
-          <h1>Boot Buying Guides</h1>
+          <h1>Boot Brokers Blog</h1>
           <p className={styles.subtitle}>Expert advice for finding quality boots online</p>
         </header>
 
