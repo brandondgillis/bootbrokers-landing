@@ -26,7 +26,7 @@ export default function UltimateBootBuyingGuide() {
         <header className={styles.header}>
           <h1>The Ultimate Guide to Buying Used Boots Online</h1>
           <p className={styles.intro}>
-            Buying used boots online is one of the smartest ways to score high-quality footwear for a fraction of retail�if you know what to look for. The problem is that "great deal" and "expensive regret" can be separated by a few missing photos, a vague description, or a seller who doesn't understand sizing.
+            Buying used boots online is one of the smartest ways to score high-quality footwear for a fraction of retail--if you know what to look for. The problem is that &quot;great deal&quot; and &quot;expensive regret&quot; can be separated by a few missing photos, a vague description, or a seller who doesn&apos;t understand sizing.
           </p>
           <p className={styles.intro}>
             This guide is designed to make you dangerous (in a good way). You'll learn how to buy secondhand boots online with confidence: how to check condition, verify authenticity, avoid fit mistakes, and spot listings that are actually worth your money.
@@ -56,7 +56,7 @@ export default function UltimateBootBuyingGuide() {
             <li>Size tag/markings photo</li>
             <li>Basic measurements (or willingness to provide them)</li>
           </ul>
-          <p>If those aren't present, you're not buying boots�you're buying uncertainty.</p>
+          <p>If those aren&apos;t present, you&apos;re not buying boots--you&apos;re buying uncertainty.</p>
         </section>
 
         <section className={styles.section}>
@@ -151,7 +151,7 @@ export default function UltimateBootBuyingGuide() {
             <li><strong>Top-grain leather:</strong> can still be excellent, sometimes more finished/coated.</li>
             <li><strong>Suede / roughout:</strong> great texture; shows wear differently; easy to refresh with a brush.</li>
             <li><strong>Patent or heavily coated leather:</strong> can crack if neglected.</li>
-            <li><strong>Bonded/PU 'leather':</strong> often peels/cracks�avoid unless very cheap and knowingly disposable.</li>
+            <li><strong>Bonded/PU &apos;leather&apos;:</strong> often peels/cracks--avoid unless very cheap and knowingly disposable.</li>
           </ul>
         </section>
 
@@ -184,7 +184,7 @@ export default function UltimateBootBuyingGuide() {
 
         <section className={styles.section}>
           <h2>Step 5: Spot counterfeit or misrepresented listings</h2>
-          <p>For most boot categories, counterfeits are less common than in sneakers�but they do exist, and misrepresentation is more common than outright fakes.</p>
+          <p>For most boot categories, counterfeits are less common than in sneakers--but they do exist, and misrepresentation is more common than outright fakes.</p>
 
           <h3>Watch for these red flags</h3>
           <ul>
@@ -262,7 +262,7 @@ export default function UltimateBootBuyingGuide() {
             <li>Clear condition summary</li>
             <li>Responsive seller</li>
           </ul>
-          <p>If you see that, you're not gambling�you're shopping.</p>
+          <p>If you see that, you&apos;re not gambling--you&apos;re shopping.</p>
         </section>
 
         <section className={styles.section}>
@@ -279,7 +279,7 @@ export default function UltimateBootBuyingGuide() {
             <p>Most are fine if stored properly. Ask about odor and interior condition. You can disinfect insides with appropriate sprays, replace insoles, and clean liners.</p>
 
             <h3>Are used boots worth it vs new?</h3>
-            <p>Often yes�especially if you're buying higher-quality materials and resoleable construction at a used price.</p>
+            <p>Often yes--especially if you&apos;re buying higher-quality materials and resoleable construction at a used price.</p>
           </div>
         </section>
 
