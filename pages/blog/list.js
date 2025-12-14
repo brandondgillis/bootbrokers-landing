@@ -9,6 +9,12 @@ export default function BlogList() {
       description: 'Learn how to buy used boots online with confidence. Complete guide covering fit, condition checks, authenticity, pricing, and what to ask before buying.',
       href: '/blog/ultimate-boot-buying-guide',
       readTime: '15 min read'
+    },
+    {
+      title: 'The Best Online Marketplaces to Buy and Sell Used Boots',
+      description: 'An honest comparison of eBay, Poshmark, Mercari, Depop, and more. Learn the fees, protection policies, and frustrations each platform creates for boot sellers.',
+      href: '/blog/best-online-marketplaces',
+      readTime: '10 min read'
     }
   ];
 
